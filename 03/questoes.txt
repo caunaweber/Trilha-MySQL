@@ -1,0 +1,65 @@
+1. Explique a diferença entre INSERT INTO e UPDATE. Em que situações cada um
+deve ser usado?
+
+    O comando INSERT INTO é utilizado para inserir novos registros em uma tabela, ou seja, adicionar dados que ainda não existem no banco. 
+    Já o UPDATE é utilizado para modificar dados que já estão armazenados na tabela.
+    O INSERT INTO deve ser usado quando há necessidade de cadastrar novas informações, como um novo usuário ou produto. 
+    O UPDATE deve ser utilizado quando é necessário corrigir ou alterar dados existentes, como atualizar o e-mail de um cliente.
+
+2. Qual a função do comando DELETE e como ele se diferencia do comando
+TRUNCATE?
+
+    O comando DELETE é utilizado para remover registros de uma tabela, podendo excluir dados específicos quando combinado com a cláusula WHERE.
+    Já o TRUNCATE remove todos os registros de uma tabela de forma mais rápida, sem permitir filtragem. 
+    Além disso, o TRUNCATE geralmente não pode ser revertido e reinicia contadores como AUTO_INCREMENT.
+
+3. Por que é importante usar a cláusula WHERE em comandos como UPDATE e
+DELETE?
+
+    A cláusula WHERE é importante porque define quais registros serão afetados pela operação. 
+    Sem ela, todos os registros da tabela serão atualizados ou excluídos, o que pode causar perda de dados ou alterações indesejadas.
+
+4. Descreva a utilidade da cláusula ORDER BY e como ela pode ser aplicada em
+consultas.
+
+    A cláusula ORDER BY é utilizada para ordenar os resultados de uma consulta, podendo organizar os dados em ordem crescente (ASC) ou decrescente (DESC).
+
+5. O que significa a palavra-chave DEFAULT no contexto de inserção de dados? Dê um
+exemplo de uso.
+
+    A palavra-chave DEFAULT define um valor padrão para uma coluna quando nenhum valor é informado durante a inserção de dados.
+    Por exemplo, se a coluna cidade tiver o valor padrão "Não Informado", ao inserir um registro sem especificar essa coluna, o banco automaticamente atribui esse valor.
+
+6. Qual a finalidade da cláusula DISTINCT e em que situações ela é útil?
+
+    A cláusula DISTINCT é utilizada para eliminar valores duplicados em uma consulta, retornando apenas resultados únicos.
+    Ela é útil, por exemplo, ao listar todas as cidades cadastradas sem repetir valores, facilitando análises e relatórios.
+
+7. Explique como a cláusula GROUP BY funciona e cite um exemplo prático de sua
+aplicação.
+
+    A cláusula GROUP BY agrupa registros com base em uma ou mais colunas, permitindo aplicar funções agregadas como COUNT, SUM ou AVG.
+    Um exemplo prático é agrupar funcionários por cargo e contar quantos existem em cada cargo, permitindo análise de distribuição dentro da empresa.
+
+8. Qual é o impacto de não usar índices no banco de dados durante consultas que
+utilizam filtros (WHERE)?
+
+    Sem o uso de índices, o banco de dados precisa percorrer todos os registros da tabela para encontrar os dados desejados, o que é chamado de varredura completa (full scan).
+    Isso torna as consultas mais lentas, especialmente em tabelas grandes, impactando negativamente o desempenho do sistema.
+
+9. Cite dois operadores de comparação e dois operadores lógicos em SQL, explicando
+como funcionam.
+
+    Operadores de comparação:
+        O operador "=" verifica se dois valores são iguais.
+        O operador ">" verifica se um valor é maior que outro.
+
+    Operadores lógicos:
+        O operador AND exige que todas as condições sejam verdadeiras.
+        O operador OR exige que pelo menos uma das condições seja verdadeira.
+
+10. Qual a diferença entre HAVING e WHERE? Por que o HAVING é usado em conjunto
+com o GROUP BY?
+
+    A cláusula WHERE é utilizada para filtrar registros antes do agrupamento dos dados. Já o HAVING é utilizado para filtrar os resultados após o uso do GROUP BY.
+    O HAVING é usado em conjunto com o GROUP BY porque permite aplicar condições sobre dados agrupados, como filtrar apenas grupos que possuem uma certa quantidade de registros.
