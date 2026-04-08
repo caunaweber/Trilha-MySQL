@@ -1,0 +1,141 @@
+1. Definição de Relacionamentos:
+Explique o conceito de relacionamento entre tabelas e como as chaves primárias e
+estrangeiras são usadas para implementá-los.
+
+    Relacionamento entre tabelas é a associação lógica entre dados armazenados em diferentes tabelas de um banco de dados relacional.
+    É implementando por meio de:
+        Chave Primária (PRIMARY KEY): identifica exclusivamente um registro.
+        Chave Estrangeira (FOREIGN KEY): referencia a chave primária de outra tabela.
+    Dessa forma, os dados passam a ser conectados, permitindo consultas integradas e garantindo consistência das informações.
+
+2. Chave Primária:
+Quais são as principais características de uma chave primária? Por que ela é
+essencial em um banco de dados relacional?
+
+    Chave Primária:
+        Características principais:
+            1.Possui valor único para cada registro.
+            2.Não aceita valores nulos.
+            3.Identifica cada linha da tabela.
+            4.Pode ser simples ou composta.
+
+    É importante para evitar registros duplicados, permitir busca de dados rapidamente e para servir como referencia entre relacionamento
+    de tabelas.
+
+3. Chave Estrangeira:
+O que é uma chave estrangeira? Explique sua importância na criação de
+relacionamentos entre tabelas.
+
+    A chave estrangeira é uma coluna que referencia a chave primária de outra tabela, criando um vínculo entre elas.
+    É importante para estabelecer relacionamento entre tabelas, impedir inserção de dados inválidos e manter a consistência
+    das tabelas relacionadas.
+
+4. Integridade Referencial:
+O que é integridade referencial? Cite exemplos práticos de como ela é aplicada em
+um banco de dados.
+
+    Integridade referencial é o conjunto de regras que garante que os relacionamentos entre tabelas permaneçam válidos.
+    Exemplos práticos:
+        1.Não permitir inserir pedido com cliente inexistente.
+        2.Impedir exclusão de cliente que possui pedidos.
+        3.Excluir automaticamente pedidos ao remover um cliente (CASCADE).
+
+5. Tipos de Relacionamentos:
+Diferencie os relacionamentos 1:1, 1:N e N:M, dando exemplos práticos para cada
+tipo.
+
+    1:1 — Um para Um
+
+        Um registro relaciona-se com apenas um outro registro.
+
+    Exemplo:
+        Cliente → Detalhes do cliente (CPF, data de nascimento).
+
+    1:N — Um para Muitos
+
+        Um registro pode relacionar-se com vários registros.
+
+    Exemplo:
+        Cliente → vários pedidos.
+
+    N:M — Muitos para Muitos
+
+        Vários registros relacionam-se entre si através de uma tabela intermediária.
+
+    Exemplo:
+        Pedidos ↔ Produtos.
+
+6. Exclusão e Atualização em Cascata:
+Explique as diferenças entre ON DELETE CASCADE e ON UPDATE CASCADE.
+Quando é apropriado usar cada um?
+
+    ON DELETE CASCADE:
+        Remove automaticamente registros relacionados quando o registro principal é excluído.
+
+        uso: quando dados dependem do registro principal.
+
+    ON UPDATE CASCADE:
+        Atualiza automaticamente as chaves estrangeiras quando a chave primária é alterada.
+
+        uso: quando identificadores podem ser modificados.
+
+7. Tabelas Intermediárias:
+Qual é a função de uma tabela intermediária em um relacionamento N:M? Explique
+sua estrutura e aplicabilidade.
+
+    A tabela intermediária é usada para implementar relacionamentos N:M.
+
+    Estrutura:
+        1.contém chaves estrangeiras das duas tabelas principais;
+        2.geralmente possui chave primária composta.
+    Aplicabilidade:
+        1.pedidos e produtos;
+        2.alunos e cursos;
+        3.usuários e permissões.
+
+    Ela permite associar múltiplos registros entre duas entidades.    
+
+8. Vantagens dos Relacionamentos:
+Quais são os benefícios de organizar dados em tabelas relacionadas em vez de
+armazenar tudo em uma única tabela?
+
+    Benefícios:
+        1.redução de redundância de dados;
+        2.maior organização das informações;
+        3.melhor desempenho em consultas;
+        4.manutenção facilitada;
+        5.garantia de integridade dos dados;
+        6.banco mais escalável.
+
+9. Problemas sem Relacionamentos:
+O que pode acontecer em um banco de dados que não utiliza relacionamentos
+corretamente? Dê exemplos de inconsistências que podem surgir.
+
+    Sem relacionamentos adequados podem ocorrer:
+        1.duplicação de informações;
+        2.pedidos sem cliente;
+        3.produtos inexistentes em pedidos;
+        4.dificuldade de manutenção;
+        5.inconsistências nos dados.
+
+10. Aplicabilidade Prática:
+Em quais situações práticas você utilizaria relacionamentos 1:N e N:M? Explique
+com base em sistemas reais, como e-commerce ou gestão acadêmica.
+
+    Relacionamento 1:N
+        Usado quando uma entidade possui vários registros associados.
+
+        Exemplos:
+            1.cliente → pedidos (e-commerce);
+            2.professor → turmas (acadêmico);
+            3.usuário → comentários.
+
+    Relacionamento N:M
+        Usado quando várias entidades se relacionam mutuamente.
+
+        Exemplos:
+            1.pedidos ↔ produtos (e-commerce);
+            2.alunos ↔ disciplinas (sistema acadêmico);
+            3.funcionários ↔ projetos (gestão empresarial).
+
+        Esses relacionamentos permitem modelar sistemas reais de forma eficiente e organizada.
