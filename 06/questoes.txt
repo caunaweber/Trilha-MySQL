@@ -1,0 +1,101 @@
+1. Conceito de Índices:
+Explique o que são índices em SQL e por que eles são importantes para a
+performance de consultas em tabelas grandes.
+
+    Índices em SQL são estruturas de dados utilizadas para acelerar a busca de informações dentro de uma tabela.
+    Eles funcionam de forma semelhante ao índice de um livro, permitindo localizar registros rapidamente 
+    sem precisar ler toda a tabela. São importantes principalmente em tabelas grandes, 
+    pois reduzem o tempo de execução das consultas e melhoram significativamente a performance.
+
+2. Tipos de Índices:
+Diferencie entre um índice básico (CREATE INDEX) e um índice único (CREATE
+UNIQUE INDEX). Dê exemplos de aplicações práticas para cada tipo.
+
+    O índice básico (CREATE INDEX) é utilizado para acelerar consultas, 
+    mas permite valores repetidos na coluna indexada.
+
+    Exemplo prático: criar um índice na coluna nome para melhorar buscas de clientes pelo nome.
+
+    O índice único (CREATE UNIQUE INDEX) além de melhorar a performance também garante que não existam 
+    valores duplicados.
+
+    Exemplo prático: criar índice único na coluna email para impedir que dois usuários sejam cadastrados 
+    com o mesmo email.
+
+3. Índices Compostos:
+Explique o que é um índice composto e em quais situações ele é mais útil.
+
+    Um índice composto é um índice criado utilizando duas ou mais colunas ao mesmo tempo. 
+    Ele é mais útil quando consultas filtram dados usando múltiplas colunas simultaneamente.
+
+    Exemplo: consultas que buscam clientes pelo nome e pela cidade ao mesmo tempo podem utilizar 
+    um índice composto nessas duas colunas.
+
+4. Impacto dos Índices em Operações DML:
+Discuta como índices podem afetar o desempenho de operações como INSERT,
+UPDATE e DELETE.
+
+    Embora índices acelerem consultas SELECT, eles podem reduzir o desempenho de operações INSERT, UPDATE e DELETE.
+    Isso ocorre porque o banco precisa atualizar o índice sempre que os dados da tabela são modificados. 
+    Quanto mais índices existirem, maior será o custo de manutenção durante essas operações.
+
+5. EXPLAIN em Consultas SQL:
+Qual é o objetivo do comando EXPLAIN no MySQL? Quais informações ele fornece
+para ajudar na otimização de consultas?
+
+    O comando EXPLAIN é utilizado para analisar como o MySQL executa uma consulta. 
+    Ele mostra o plano de execução da query, permitindo identificar gargalos de performance.
+
+    Entre as informações exibidas estão o tipo de acesso à tabela, o índice utilizado, 
+    a quantidade estimada de linhas analisadas e possíveis operações adicionais realizadas pelo banco.
+
+6. Full Table Scan:
+O que é um Full Table Scan e por que ele pode ser prejudicial ao desempenho?
+Como evitá-lo?
+
+    Full Table Scan ocorre quando o banco de dados precisa percorrer todas as linhas de uma tabela 
+    para encontrar os dados solicitados. Isso é prejudicial ao desempenho em tabelas grandes porque a
+    umenta o tempo de processamento.
+
+    Pode ser evitado criando índices apropriados nas colunas utilizadas em filtros, JOINs e ordenações.
+
+7. Limitação de Registros em Consultas:
+Por que o uso do comando LIMIT pode melhorar a performance de uma consulta?
+Cite um exemplo prático.
+
+    O comando LIMIT restringe a quantidade de registros retornados por uma consulta, 
+    reduzindo o volume de dados processados e transferidos.
+
+    Exemplo prático: exibir apenas os 10 primeiros produtos mais recentes em um sistema de e-commerce utilizando 
+    LIMIT 10.
+
+8. Índices e JOINs:
+Explique como os índices podem melhorar a performance de consultas que utilizam
+JOINs.
+
+    Índices melhoram a performance de JOINs porque permitem localizar rapidamente os registros relacionados 
+    entre as tabelas. Quando as colunas utilizadas na junção possuem índices, 
+    o banco evita varreduras completas e encontra as correspondências de forma muito mais eficiente.
+
+9. Boas Práticas em Consultas SQL:
+Liste e explique três boas práticas para escrever consultas SQL eficientes.
+
+    Primeira prática: criar índices nas colunas mais utilizadas em WHERE, JOIN e ORDER BY para 
+    acelerar consultas.
+
+    Segunda prática: evitar o uso de funções diretamente nas colunas filtradas, pois isso impede o 
+    uso de índices.
+
+    Terceira prática: selecionar apenas as colunas necessárias em vez de utilizar SELECT *, 
+    reduzindo processamento e tráfego de dados.
+
+10. Funções de Agregação e Performance:
+Como o uso de funções de agregação (COUNT, SUM, AVG) pode impactar a
+performance de uma consulta? O que pode ser feito para otimizar consultas que
+utilizam essas funções?
+
+    Funções de agregação como COUNT, SUM e AVG podem impactar a performance porque precisam analisar 
+    vários registros da tabela para gerar resultados consolidados.
+
+    Para otimizar essas consultas é recomendado utilizar índices nas colunas agrupadas, aplicar filtros 
+    antes da agregação e utilizar GROUP BY somente quando necessário.

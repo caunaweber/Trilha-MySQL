@@ -1,0 +1,90 @@
+1. (1 ponto) Explique o que é um INNER JOIN e cite um exemplo prático onde ele seria
+utilizado.
+
+    O INNER JOIN é utilizado para combinar dados de duas ou mais tabelas retornando apenas os registros que 
+    possuem correspondência em ambas as tabelas. Ele mostra somente os dados relacionados entre si.
+
+    Exemplo prático: em um sistema de vendas, utilizar INNER JOIN entre as tabelas clientes e pedidos para listar 
+    apenas os clientes que realmente realizaram pedidos.
+
+2. (1 ponto) Qual a diferença entre LEFT JOIN e RIGHT JOIN? Cite um exemplo prático
+para cada um.
+
+    O LEFT JOIN retorna todos os registros da tabela localizada à esquerda da consulta e os dados correspondentes da tabela à direita. 
+    Quando não há correspondência, os valores da tabela direita aparecem como NULL.
+
+    Exemplo prático de LEFT JOIN: listar todos os clientes, inclusive aqueles que nunca fizeram pedidos.
+
+    O RIGHT JOIN retorna todos os registros da tabela à direita e os correspondentes da tabela à esquerda. Caso não exista relação, 
+    os campos da tabela esquerda ficam NULL.
+
+    Exemplo prático de RIGHT JOIN: listar todos os pedidos existentes, mesmo que algum não esteja associado a um cliente.
+
+3. (1 ponto) Explique como o FULL OUTER JOIN pode ser emulado no MySQL. Por que
+ele não é nativo?
+
+    O MySQL não possui suporte nativo ao FULL OUTER JOIN porque seu mecanismo de junção foi projetado priorizando INNER, LEFT e RIGHT JOIN, 
+    que atendem a maioria dos casos práticos.
+
+    Ele pode ser emulado utilizando a união de um LEFT JOIN com um RIGHT JOIN através da cláusula UNION, 
+    permitindo retornar todos os registros das duas tabelas, mesmo sem correspondência.
+
+4. (1 ponto) O que são subconsultas simples? Dê um exemplo onde uma subconsulta
+seria mais eficiente do que um JOIN.
+
+    Subconsultas simples são consultas SQL executadas dentro de outra consulta principal. 
+    Elas retornam um valor ou conjunto de valores que será utilizado pela consulta externa.
+
+    Exemplo onde é mais eficiente que JOIN: encontrar o cliente que realizou o maior pedido utilizando uma subconsulta que retorna 
+    o maior valor diretamente, evitando junções desnecessárias entre tabelas.
+
+5. (1 ponto) Qual a diferença entre uma subconsulta simples e uma subconsulta
+correlacionada?
+
+    A subconsulta simples é executada apenas uma vez e seu resultado é utilizado pela consulta principal.
+
+    A subconsulta correlacionada é executada repetidamente, uma vez para cada linha processada pela consulta principal, 
+    pois depende dos valores da linha atual.
+
+6. (1 ponto) Explique o conceito de funções de agregação e liste as mais utilizadas no
+MySQL.
+
+   Funções de agregação são utilizadas para realizar cálculos sobre um conjunto de registros e retornar um único resultado estatístico.
+
+    As funções mais utilizadas no MySQL são:
+    COUNT – conta registros
+    SUM – soma valores
+    AVG – calcula média
+    MAX – retorna o maior valor
+    MIN – retorna o menor valor
+
+7. (1 ponto) Qual a função do GROUP BY em uma consulta SQL? Em quais casos ele deve
+ser utilizado?
+
+    O GROUP BY é utilizado para agrupar registros que possuem valores iguais em determinada coluna, 
+    permitindo aplicar funções de agregação em cada grupo.
+
+    Ele deve ser utilizado quando é necessário gerar resumos de dados, como total de vendas por cliente, 
+    quantidade de pedidos por usuário ou média de notas por aluno.
+
+8. (1 ponto) O que é a cláusula HAVING? Como ela difere da cláusula WHERE?
+
+    A cláusula HAVING é utilizada para filtrar resultados após a aplicação do GROUP BY e das funções de agregação.
+
+    A diferença para o WHERE é que o WHERE filtra registros antes do agrupamento, enquanto o HAVING filtra grupos já agregados.
+
+9. (1 ponto) Cite dois cenários práticos onde você utilizaria a combinação de GROUP BY e
+funções de agregação.
+
+    Primeiro cenário: em um sistema de e-commerce, calcular o total de vendas realizadas por cada cliente utilizando SUM e GROUP BY.
+
+    Segundo cenário: em um sistema acadêmico, calcular a média das notas dos alunos por disciplina utilizando AVG e GROUP BY.
+
+10. (1 ponto) Explique a importância dos JOINs em bancos de dados relacionais. Como
+eles contribuem para evitar redundâncias e promover eficiência?
+
+    Os JOINs são fundamentais em bancos de dados relacionais porque permitem combinar informações armazenadas em diferentes 
+    tabelas sem duplicar dados.
+
+    Eles contribuem para evitar redundância ao manter dados separados e relacionados apenas quando necessário. 
+    Além disso, melhoram a organização do banco, aumentam a eficiência das consultas e garantem maior consistência das informações.
