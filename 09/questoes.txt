@@ -1,0 +1,49 @@
+1. Diferença entre Funções e Procedimentos Armazenados
+
+    Funções e procedimentos armazenados são rotinas criadas dentro do banco de dados para reutilizar código SQL.
+    A principal diferença é que uma função sempre retorna um valor e pode ser utilizada dentro de consultas SQL, enquanto um procedimento armazenado executa ações no banco e normalmente não retorna valores diretamente, sendo executado através do comando CALL.
+
+2. Vantagens do Uso de Procedimentos Armazenados
+
+    Procedimentos armazenados centralizam regras de negócio no banco de dados, permitindo reutilização de código,
+    maior organização e melhor segurança. Eles reduzem o tráfego entre aplicação e banco, aumentam a performance e facilitam a manutenção do sistema.
+
+3. Funções de Manipulação de Strings
+
+    Funções de manipulação de strings são utilizadas para modificar ou analisar textos armazenados no banco. 
+    Exemplos comuns incluem CONCAT para juntar textos, SUBSTRING para extrair partes de uma string, UPPER para converter para letras maiúsculas e LOWER para converter para letras minúsculas.
+
+4. Funções de Data e Hora
+
+    Funções de data e hora permitem trabalhar com informações temporais. NOW retorna a data e hora atuais, 
+    DATE_FORMAT permite formatar datas e DATEDIFF calcula a diferença em dias entre duas datas. Elas são úteis para relatórios, controle de prazos e histórico de registros.
+
+5. Funções Numéricas
+
+    Funções numéricas realizam operações matemáticas sobre valores numéricos. Exemplos incluem ROUND para 
+    arredondamento, FLOOR para arredondar para baixo e CEIL para arredondar para cima. São utilizadas em cálculos financeiros, estatísticos e relatórios.
+
+6. Parâmetros em Procedimentos Armazenados
+
+    Procedimentos armazenados podem receber parâmetros de entrada, saída ou ambos. Parâmetros IN recebem valores
+    enviados pelo usuário, parâmetros OUT retornam valores e parâmetros INOUT funcionam como entrada e saída ao mesmo tempo.
+
+7. Criação de Funções Definidas pelo Usuário (UDF)
+
+    Funções definidas pelo usuário são criadas utilizando CREATE FUNCTION. Elas recebem parâmetros, executam 
+    operações internas e obrigatoriamente retornam um valor através da cláusula RETURNS. São utilizadas para encapsular cálculos ou regras repetidas dentro do banco.
+
+8. Uso do DELIMITER
+
+    O DELIMITER é utilizado para alterar temporariamente o terminador padrão de comandos SQL. Isso é necessário 
+    ao criar procedures ou funções, pois esses objetos possuem múltiplas instruções internas que utilizam ponto e vírgula.
+
+9. Segurança e Reutilização de Código
+
+    Procedures e funções aumentam a segurança porque permitem restringir acesso direto às tabelas, liberando 
+    apenas a execução das rotinas. Além disso, promovem reutilização de código, evitando repetição de consultas em diferentes partes da aplicação.
+
+10. Aplicações Práticas
+
+    Funções e procedimentos são amplamente utilizados em sistemas reais, como cálculo automático de descontos, 
+    geração de relatórios financeiros, inserção controlada de pedidos, validação de dados e automação de regras de negócio diretamente no banco de dados.
