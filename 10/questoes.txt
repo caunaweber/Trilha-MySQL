@@ -1,0 +1,65 @@
+1. Conceito de Triggers:
+   Triggers são rotinas automáticas executadas pelo banco de dados quando ocorre
+   um evento específico em uma tabela, como INSERT, UPDATE ou DELETE.
+   Elas são importantes porque permitem automatizar regras de negócio,
+   validações e auditorias diretamente no banco de dados.
+
+2. Tipos de Triggers:
+    As triggers podem ser classificadas conforme o momento de execução:
+
+    BEFORE: executadas antes da operação ocorrer.
+    AFTER: executadas depois da operação ser concluída.
+    Exemplo:
+    BEFORE INSERT pode validar ou modificar dados antes da gravação.
+    AFTER DELETE pode registrar logs após a exclusão de registros.
+
+3. Eventos que Disparam Triggers:
+    Triggers são acionadas por operações DML:
+
+    INSERT: quando um novo registro é inserido.
+    UPDATE: quando um registro é alterado.
+    DELETE: quando um registro é removido.
+    Cada operação pode possuir uma trigger específica associada.
+
+4. Uso de NEW e OLD:
+   NEW representa os novos valores de um registro.
+   OLD representa os valores antigos do registro.
+   NEW é utilizado em INSERT e UPDATE.
+   OLD é utilizado em UPDATE e DELETE.
+   Eles permitem acessar os dados antes e depois da modificação.
+
+5. Conceito de Eventos no MySQL:
+   Eventos são tarefas automáticas agendadas para execução em determinados
+   intervalos de tempo ou datas específicas.
+   Funcionam como um agendador interno do MySQL, semelhante a um cron.
+
+6. Event Scheduler:
+   O Event Scheduler é o mecanismo responsável por executar eventos agendados.
+   Ele precisa estar ativo para que os eventos funcionem.
+   Ativação:
+   SET GLOBAL event_scheduler = ON;
+
+7. Diferença entre Triggers e Eventos:
+   Triggers são executadas automaticamente após ações em tabelas.
+   Eventos são executados com base em tempo ou agendamento.
+   Triggers dependem de operações DML.
+   Eventos dependem de tempo configurado.
+
+8. Auditoria com Triggers:
+   Triggers podem registrar alterações em tabelas de auditoria,
+   armazenando dados antigos e novos, usuário e data da modificação.
+   Isso permite rastrear mudanças e aumentar a segurança dos dados.
+
+9. Impacto das Triggers na Performance:
+   Triggers adicionam processamento extra às operações.
+   Em tabelas muito grandes podem reduzir o desempenho de INSERT,
+   UPDATE e DELETE.
+   Devem ser usadas apenas quando realmente necessárias.
+
+10. Boas Práticas no Uso de Triggers e Eventos:
+
+    Evitar lógica complexa dentro de triggers.
+    Utilizar triggers apenas para automações essenciais.
+    Monitorar impacto na performance.
+    Nomear triggers e eventos de forma padronizada.
+    Testar cuidadosamente para evitar execuções inesperadas.
